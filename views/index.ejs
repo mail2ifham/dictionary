@@ -12,42 +12,47 @@
   </section>
 
   <% if (locals.data && locals.error) { %>
-
+    
     <% if (Object.keys(data).length) { %>
       <h1><%= data.word %></h1>
       <h1><%= data.phonetics[0].text %></h1>
-      <audio  controls >
-        <source src="https://upload.wikimedia.org/wikipedia/commons/4/46/En-us-cat.ogg" type="audio/mpeg">
-        sdfafsdf
-      </audio>
-      
-      <% data.meanings.forEach(item =>{ %>
-         <h3><%= item.partOfSpeech %></h3>
-         <h4>Meanings</h4>
 
-       <% item.definitions.forEach(definition => {%>
-        <ul>
-          <li>
-            <%= definition.definition %> <br />
-            <span> <%= definition.example ? `"${definition.example}"`:null %> </span>
-          </li>
-        </ul>
+      <% if (data.phonetics[0].audio) { %>
+        <button 
+        name="playBtn" id="playBtn" 
+        value=<%= data.phonetics[0].audio%>  onclick="playSound(this.value)">
+        Play
+      </button>
+      <% } else {%>
+        <button disabled>play</button>
+        <p>no audio found for this word</p>
+      <% } %>
 
-       <%}) %> 
-     <% }) %>
-   <% }  else if (Object.keys(error).length){ %>
+  <% data.meanings.forEach(item =>{ %>
+  <h3><%= item.partOfSpeech %></h3>
+  <h4>Meanings</h4>
 
-      <h1><%= `${error.title} for ${word}` %></h1>
-      <% } else { %>
-        <h1>sdalam</h1>
-        <% } %>
+  <% item.definitions.forEach(definition => {%>
+  <ul>
+    <li>
+      <%= definition.definition %> <br />
+      <span> <%= definition.example ? `"${definition.example}"`:null %> </span>
+    </li>
+  </ul>
+
+  <%}) %>
+  <% }) %>
+  <% }  else if (Object.keys(error).length){ %>
+
+  <h1><%= `${error.title} for ${word}` %></h1>
+  <% } else { %>
+  <h1>sdalam</h1>
+  <% } %>
   <% } %>
 
   <hr />
 </main>
-<script
-  src="https://kit.fontawesome.com/50eafce059.js"
-  crossorigin="anonymous"
-></script>
+<script src="https://kit.fontawesome.com/50eafce059.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/index.js"></script>
 
 <%- include('partials/footer.ejs') %>
