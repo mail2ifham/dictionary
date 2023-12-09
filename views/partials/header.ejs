@@ -1,22 +1,49 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/main.css" />
-    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
-    <title>Dictionary</title>
-  </head>
-  <body>
-    <header>
-      <nav>
-        
-        <a href="/"><h1>Dictionary</h1></a>
-        <ul>
-          <li>Sarif</li>
-          <li>toggleBtn</li>
-          <li>theme</li>
-        </ul>
-      </nav>
-    </header>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,800&family=Roboto+Serif:wght@400;800&family=Roboto+Slab:wght@400;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <title>Dictionary</title>
+</head>
+
+<body>
+  <header>
+    <a class="headIcon" href="/">
+      <i class="fa-solid fa-book"></i>Dictionary
+    </a>
+
+    <ul class="list">
+      <li class="list-parent">
+        <button  class="dropdownButton">
+          Sans-Serif
+          <i class="fa-solid fa-caret-down"></i>
+        </button>
+        <div class="dropdown">
+          <ul>
+            <li><button
+               class="list-btn" value="'Roboto Flex', sans-serif" >Sans Serif
+              </button></li>
+            <li> <button
+               class="list-btn" value="'Roboto Slab', serif">Slab
+              </button></li>
+            <li> <button
+               class="list-btn" value="'Roboto Serif', serif" >Serif
+              </button></li>
+          </ul>
+        </div>
+      </li>
+      <li>|</li>
+
+      <li><span id="darkModeBtn" onclick="darkMode()">Dark mode</span></li>
+
+    </ul>
+  </header>
+</body>
+
+</html>

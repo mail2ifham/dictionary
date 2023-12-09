@@ -28,7 +28,7 @@ data = {};
       `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
       );
       data = response.data[0];
-        console.log("hay:",data);
+        console.log("hay:",data.phonetics);
     
 } catch (err) {
     // console.log(err.response.data)

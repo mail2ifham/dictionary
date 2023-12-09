@@ -1,27 +1,333 @@
-h1{
-    color: brown;
+:root {
+  --primaryColor: #6096b4;
+  --lightGrayColor: #f1f1f1;
+  --grayColor: #c2c2c2;
+  padding: 0;
+  margin: 0;
 }
 
-#searchBox {
-    position: relative;
-    color: blue;
+main {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#searchBox::before{
-content: "summa";
-font-family: FontAwesome;
-left:-5px;
-position:absolute;
-top:0;
+body {
+  font-family: "Roboto Flex", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
 }
+
+button {
+  background-color: inherit;
+  color: inherit;
+  border: none;
+}
+
+h4 {
+  color: var(--grayColor);
+}
+
+hr {
+  width: 100%;
+}
+
+/* to get the separation  line after the heading(noun and verb) */
 
 h3::after {
-    content: "";
-    display: inline-block;
-    height: 0.5em;
-    vertical-align: bottom;
+  content: "";
+  display: inline-block;
+  height: 0.5em;
+  vertical-align: bottom;
+  width: 100%;
+  margin-right: -100%;
+  margin-left: 10px;
+  border-top: 1px solid rgba(180, 180, 180, 0.5);
+}
+
+/* darkMODE */
+
+.dark-mode {
+  background-color: #272727 !important;
+  color: white;
+}
+
+/* Header */
+
+a {
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  text-decoration: none;
+  color: var(--primaryColor);
+}
+
+a > .fa-solid {
+  font-size: 40px;
+  padding-right: 10px;
+}
+
+.list-btn {
+  display: block;
+  width: 100%;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 5px 10px;
+  text-align: start;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+  max-height: 0;
+  background-color: white;
+  position: absolute;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+.show-dropdown {
+  max-height: 350px;
+  box-shadow: 8px 4px 20px 1px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown > ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.dropdownButton,
+#darkModeBtn {
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.dropdownButton > i {
+  padding-left: 10px;
+}
+
+header {
+  width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list {
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-left: auto;
+  align-items: center;
+}
+
+.list-parent {
+  position: relative;
+}
+
+/* search box area */
+
+#searchBox {
+  background-color: var(--lightGrayColor);
+  border: 0;
+  position: relative;
+  width: 100%;
+  font-size: 1.4rem;
+  height: 50px;
+  border-radius: 8px;
+  padding-left: 10px;
+  transition: border 0.08s ease-in-out;
+}
+
+#searchBox:focus {
+  /* border animation */
+  border: 3px solid var(--primaryColor);
+  outline: none;
+}
+
+.search {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 100px 0 50px 0;
+}
+
+form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+form > button {
+  border-radius: 8px;
+  font-size: 1.5rem;
+  position: absolute;
+  right: 10px;
+  color: var(--primaryColor);
+  cursor: pointer;
+}
+
+form > label {
+  /*  hide the label */
+  position: absolute;
+  left: -9999;
+}
+
+.dataList {
+  margin: 8px;
+}
+
+/* data viewer */
+
+.dataViewer {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.word {
+  margin: 0;
+  font-size: 4rem;
+  font-weight: 900;
+  width: max-content;
+}
+
+.word + h1 {
+  margin: 0;
+  color: var(--primaryColor);
+  font-weight: 100;
+  grid-row-start: 2;
+  align-self: start;
+}
+
+.playBtn {
+  background-color: rgba(94, 151, 181, 0.5);
+  grid-column-start: 2;
+  grid-row: 1 / span 2;
+  padding: 10px 10px 10px 15px;
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.playBtn > i {
+  color: var(--primaryColor);
+  font-size: 40px;
+}
+
+.word-container {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.word-container > p {
+  margin: 0;
+  color: red;
+  grid-column-start: 2;
+  align-self: start;
+}
+
+.playBtn:disabled {
+  cursor: not-allowed;
+}
+
+.error {
+  color: #575757;
+}
+
+/* footer */
+
+footer {
+  width: 100%;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+footer > div {
+  display: flex;
+  align-items: center;
+}
+footer > div > p {
+  padding: 0 25px;
+}
+
+footer > div > p:nth-child(2) {
+  color: var(--grayColor);
+}
+
+@media screen and (max-width: 767px) {
+  .list {
     width: 100%;
-    margin-right: -100%;
-    margin-left: 10px;
-    border-top: 1px solid rgb(180, 180, 180);
+    justify-content: end;
+  }
+
+  header {
+    width: 90%;
+  }
+  .headIcon {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  main {
+    width: 90%;
+  }
+  .search {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 50px 0 50px 0;
+  }
+
+  footer > div > p:nth-child(2) {
+    display: none;
+  }
+
+  footer > div {
+    flex-direction: column;
+  }
+
+  footer > div > p {
+    padding: 5px;
+    margin: 0;
+  }
+
+  .word {
+    grid-column: 1 / span 2;
+  }
+  .playBtn {
+    grid-column-start: 1;
+    grid-row: 3;
+  }
+
+  .word-container > p {
+    grid-row: 3;
+    align-self: center;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .playBtn {
+    justify-self: center;
+  }
 }
