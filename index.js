@@ -38,6 +38,6 @@ data = {};
   res.redirect("/result");
 });
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`Listening to port ${port}`);
 });
